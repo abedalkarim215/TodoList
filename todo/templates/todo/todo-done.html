@@ -1,0 +1,11 @@
+{% extends 'todo/layouts/base-todo.html' %}
+{% load static %}
+{% block content %}
+
+    <h1>complated todos : </h1>
+    {% for todo in todos %}
+        <p>{{ todo.title }}</p>
+    {% endfor %}
+
+
+{% endblock %}
