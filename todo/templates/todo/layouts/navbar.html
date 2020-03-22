@@ -12,10 +12,10 @@
   {% if user.is_authenticated %}
     <ul class="navbar-nav mr-auto" id="navLink">
       <li class="nav-item active liM">
-        <a class="btn btn-outline-warning active" href="#">Current <span class="sr-only">(current)</span></a>
+        <a class="btn btn-outline-warning active" href="{% url 'todo_not_done' %}">Current <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active liM">
-        <a class="btn btn-outline-warning active" href="#">Compelted <span class="sr-only">(current)</span></a>
+        <a class="btn btn-outline-warning active" href="{% url 'todo_done' %}">Compelted <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>

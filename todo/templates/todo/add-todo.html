@@ -1,0 +1,26 @@
+{% extends 'todo/layouts/base-todo.html' %}
+{% load static %}
+{% block content %}
+
+    <h1>add todos : </h1>
+    <form method="post" action="{% url 'add_todo' %}">
+    {% csrf_token %}
+        <label>title :</label>
+        <br>
+        <input type="text" name="title">
+        <br>
+        <label>description :</label>
+        <br>
+        <input type="text" name="description">
+        <br>
+        <label>is_important :</label>
+        <br>
+        <input type="checkbox" name="is_important">
+        <br>
+        <button class="btn btn-outline-warning" type="submit" >add todo</button>
+
+    </form>
+
+
+
+{% endblock %}

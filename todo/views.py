@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from .models import *
 
 def home(request) :
@@ -17,3 +17,17 @@ def todo_done(request) :
         'todos': todos
     }
     return render(request, 'todo/todo-done.html',context)
+
+def add_todo(request) :
+    if request.method == "GET" :
+        return render(request,'todo/add-todo.html')
+    else :
+        title = request.POST['title']
+        description = request.POST['description']
+        is_important = "is_important" in request.POST
+        todo = Todo.objects.create(title=title,
+                                   description=description,
+                                   is_important=is_important,
+                                   user=request.user)
+        todo.save()
+        return redirect('todo_not_done')
