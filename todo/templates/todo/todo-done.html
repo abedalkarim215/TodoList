@@ -4,9 +4,12 @@
 
     <h1>complated todos : </h1>
     {% for todo in todos %}
-        <p {% if todo.is_important %} style="color: red" {% endif %}>
-            {{ todo.title }}
-        </p>
+        <a href="{% url 'show_todo' todo.id "COM" %}" >
+            <p {% if todo.is_important %} style="color: red" {% endif %}>
+
+                {{ todo.title }}
+            </p>
+        </a>
     {% endfor %}
 
 {% endblock %}

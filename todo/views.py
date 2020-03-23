@@ -1,4 +1,4 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render ,redirect ,get_object_or_404
 from .models import *
 
 def home(request) :
@@ -31,3 +31,15 @@ def add_todo(request) :
                                    user=request.user)
         todo.save()
         return redirect('todo_not_done')
+
+def show_todo(request ,todo_id,from_complate_template) :
+    COM = False
+    if from_complate_template == "COM" :
+        COM = True
+    if request.method == "GET" :
+        todo = get_object_or_404(Todo,pk =todo_id,user = request.user)
+        context = {
+            "todo" : todo,
+            "from_complate_template" : COM
+        }
+        return render(request,'todo/show_todo.html',context)

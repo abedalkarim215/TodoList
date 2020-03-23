@@ -24,6 +24,9 @@
                 <form method="post" action="{% url 'logout_user' %}" style="display: block;text-align: center;background-color: #e9ecef;border: none;padding: 3px;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary btn-lg">Logout</button>
+                    <a href="{% url 'todo_not_done' %}">
+                        <button type="button" class="btn btn-primary btn-lg">todos</button>
+                    </a>
                 </form>
             </p>
         {% else %}

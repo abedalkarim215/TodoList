@@ -4,9 +4,13 @@
 
     <h1>current todos : </h1>
     {% for todo in todos %}
-        <p {% if todo.is_important %} style="color: red" {% endif %}>
-            {{ todo.title }}
-        </p>
+        <a href="{% url 'show_todo' todo.id "not_COM"%}" >
+            <p {% if todo.is_important %} style="color: red" {% endif %}>
+
+                {{ todo.title }}
+            </p>
+        </a>
+
     {% endfor %}
 
 <a href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >add todo</a>

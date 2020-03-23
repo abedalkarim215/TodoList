@@ -1,0 +1,22 @@
+{% extends 'todo/layouts/base-todo.html' %}
+{% load static %}
+{% block content %}
+
+<h3>{{ todo.title }}</h3>
+    <p style="padding :10px;border: black solid 2px">{{ todo.description }}</p>
+    <form>
+        <label>
+        is important
+            <input type="checkbox" disabled {% if todo.is_important %} checked {% endif %}>
+        </label>
+    </form>
+    {% if from_complate_template %}
+        <a href="#" class="btn btn-outline-warning">Uncomplete</a>
+        <a href="#" class="btn btn-outline-warning">delete</a>
+
+    {% else %}
+        <a href="#" class="btn btn-outline-warning">edit</a>
+        <a href="#" class="btn btn-outline-warning">complete</a>
+        <a href="#" class="btn btn-outline-warning">delete</a>
+    {% endif %}
+{% endblock %}
