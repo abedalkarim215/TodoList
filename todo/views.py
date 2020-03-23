@@ -43,3 +43,21 @@ def show_todo(request ,todo_id,from_complate_template) :
             "from_complate_template" : COM
         }
         return render(request,'todo/show_todo.html',context)
+
+def edit_todo(request,todo_id) :
+    todo = get_object_or_404(Todo, pk=todo_id, user=request.user)
+    if request.method == "GET" :
+        context = {
+            "todo": todo,
+        }
+        return render(request,'todo/edit_todo.html',context)
+    else :
+        todo.title = request.POST['title']
+        todo.description = request.POST['description']
+        todo.is_important = "is_important" in request.POST
+        todo.save()
+        context = {
+            "todo": todo,
+            "from_complate_template": False
+        }
+        return render(request,'todo/show_todo.html',context)
