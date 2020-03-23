@@ -32,15 +32,11 @@ def add_todo(request) :
         todo.save()
         return redirect('todo_not_done')
 
-def show_todo(request ,todo_id,from_complate_template) :
-    COM = False
-    if from_complate_template == "COM" :
-        COM = True
+def show_todo(request ,todo_id) :
     if request.method == "GET" :
         todo = get_object_or_404(Todo,pk =todo_id,user = request.user)
         context = {
             "todo" : todo,
-            "from_complate_template" : COM
         }
         return render(request,'todo/show_todo.html',context)
 
@@ -58,6 +54,5 @@ def edit_todo(request,todo_id) :
         todo.save()
         context = {
             "todo": todo,
-            "from_complate_template": False
         }
         return render(request,'todo/show_todo.html',context)
