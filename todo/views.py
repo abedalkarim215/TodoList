@@ -56,3 +56,13 @@ def edit_todo(request,todo_id) :
             "todo": todo,
         }
         return render(request,'todo/show_todo.html',context)
+
+
+def delete_todo(request, todo_id):
+    todo = get_object_or_404(Todo, pk=todo_id, user=request.user)
+    if request.method == 'POST':
+        todo.delete()
+        if todo.date_completed is not None :
+            return redirect('todo_done')
+        else :
+            return redirect('todo_not_done')
