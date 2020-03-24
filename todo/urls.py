@@ -7,6 +7,7 @@ urlpatterns = [
     path('show/<int:todo_id>' , show_todo ,name = 'show_todo'),
     path('edit/<int:todo_id>' , edit_todo ,name = 'edit_todo'),
     path('delete/<int:todo_id>' , delete_todo ,name = 'delete_todo'),
+    path('complate/<int:todo_id>' , complate_todo ,name = 'complate_todo'),
 
 ]
 

@@ -12,17 +12,29 @@
     </form>
     {% if todo.date_completed %}
 
-        <a href="#" class="btn btn-outline-warning">Uncomplete</a>
+        <form style="display: inline" method="post" action="{% url 'complate_todo' todo.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-warning">Uncomplete</button>
+        </form>
+
+
         <form style="display: inline" method="post" action="{% url 'delete_todo' todo.id %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-warning">delete</button>
         </form>
     {% else %}
+
         <a href="{% url 'edit_todo' todo.id %}" class="btn btn-outline-warning">edit</a>
-        <a href="#" class="btn btn-outline-warning">complete</a>
+
+        <form style="display: inline" method="post" action="{% url 'complate_todo' todo.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-warning">complete</button>
+        </form>
+
         <form style="display: inline" method="post" action="{% url 'delete_todo' todo.id %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-warning">delete</button>
         </form>
+
     {% endif %}
 {% endblock %}

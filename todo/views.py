@@ -1,5 +1,7 @@
 from django.shortcuts import render ,redirect ,get_object_or_404
 from .models import *
+from django.utils import timezone
+
 
 def home(request) :
     return render(request,'todo/layouts/base-todo.html')
@@ -66,3 +68,15 @@ def delete_todo(request, todo_id):
             return redirect('todo_done')
         else :
             return redirect('todo_not_done')
+
+def complate_todo(request,todo_id) :
+    todo = get_object_or_404(Todo, pk=todo_id, user=request.user)
+    if request.method == "POST" :
+        if todo.date_completed is not  None :
+            todo.date_completed = None
+            todo.save()
+            return redirect('todo_not_done')
+        else :
+            todo.date_completed = timezone.now()
+            todo.save()
+            return redirect('todo_done')
