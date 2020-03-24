@@ -3,6 +3,12 @@
 {% block content %}
 
     <h1>current todos : </h1>
+    {% for message in messages %}
+        <div class="alert alert-warning" role="alert">
+             {{ message }}
+        </div>
+    {% endfor %}
+
     {% for todo in todos %}
         <a href="{% url 'show_todo' todo.id%}" >
             <p {% if todo.is_important %} style="color: red" {% endif %}>
@@ -13,5 +19,10 @@
 
     {% endfor %}
 
-<a href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >add todo</a>
+    <a href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >add todo</a>
+
+    <form method="post" action="{% url 'clear_todo' %}" style="display: inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">Clear</button>
+    </form>
 {% endblock %}

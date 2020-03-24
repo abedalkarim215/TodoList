@@ -1,6 +1,8 @@
 from django.shortcuts import render ,redirect ,get_object_or_404
 from .models import *
 from django.utils import timezone
+from django.contrib import messages
+
 
 
 def home(request) :
@@ -80,3 +82,21 @@ def complate_todo(request,todo_id) :
             todo.date_completed = timezone.now()
             todo.save()
             return redirect('todo_done')
+
+def clear_todo(request) :
+    if request.method == "POST" :
+        if "COM" in request.POST :
+            todo = Todo.objects.filter(user=request.user, date_completed__isnull=False)
+            if todo.__len__() == 0 :
+                messages.info(request, 'there is nothing to clear')
+            else :
+                todo.delete()
+            return render(request,'todo/todo-done.html')
+        else :
+            todo = Todo.objects.filter(user=request.user, date_completed__isnull=True)
+            if todo.__len__() == 0:
+                messages.info(request, 'there is nothing to clear')
+            else:
+                todo.delete()
+            return render(request, 'todo/todo_not_done.html')
+

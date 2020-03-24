@@ -17,6 +17,9 @@
             <input type="checkbox" name="is_important" {% if todo.is_important %}checked{% endif %}>
             <br>
             <button class="btn btn-outline-warning" type="submit" >save changes</button>
+            <a href="{% url 'show_todo' todo.id %}">
+                <button class="btn btn-outline-danger" type="button" >Cancel</button>
+            </a>
 
     </form>
 
