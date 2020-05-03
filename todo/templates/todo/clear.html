@@ -1,0 +1,25 @@
+{% extends 'todo/layouts/base-todo.html' %}
+{% load i18n %}
+{% block content %}
+<br><div class="alert alert-danger" role="alert">
+      <h1 style="text-align: center" class="alert-heading">{% trans 'Warning!' %}</h1>
+    <hr class="my-4">
+      <p style="text-align: center;font-size: 20px">{% trans "Are You Sure You Wanna Delete All the TODO's" %}</p>
+
+</div>
+    <form method="post" action="{% url 'clear_todo' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+                <button style="display: inline;width: 100%" type="submit" class="btn btn-outline-danger">{% trans 'Yes' %}</button>
+
+        </div>
+        <div class="col-md-6">
+            <a style="text-decoration: none" href="{% url 'todo_not_done' %}">
+                <button type="button" style="display: inline;width: 100%"  class="btn btn-outline-warning">{% trans 'Cancel' %}</button>
+    </a>
+        </div>
+    </div>
+    </form>
+
+{% endblock %}

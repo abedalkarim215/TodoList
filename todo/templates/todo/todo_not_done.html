@@ -1,28 +1,58 @@
 {% extends 'todo/layouts/base-todo.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 
-    <h1>current todos : </h1>
-    {% for message in messages %}
-        <div class="alert alert-warning" role="alert">
-             {{ message }}
-        </div>
-    {% endfor %}
+        <style>
+    #all:hover{
+        background-color: white;
+    }
+    </style>
+<div class="row">
+{% if all_clear %}
+    <div class="col-md-12">
+<h1 class="" style="text-align: center">^^ {% trans 'Current Todos' %} ^^</h1>
+    </div>
+    {% else %}
+<div class="col-md-2"><a style="display: block;margin: 5px" href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >{% trans 'add todo' %}</a></div>
 
+<div class="col-md-8">
+<h1 class="" style="text-align: center">^^{% trans 'Current Todos' %}  ^^</h1>
+    </div>
+<div class="col-md-2"> <a style="display: block;margin: 5px" href="{% url 'clear_todo' %}" class="btn btn-danger" >{% trans 'Clear' %}</a></div>
+{% endif %}
+</div>
+    <br>
+<hr class="my-4">
+{% if all_clear %}
+    <div style="background-color: #ffe8a1;height: 200px">
+    <p style="text-align: center;font-size: 30px"> {% trans 'WooooW , You dont have any thing to do' %} ,
+        <br> {% trans 'You can go to sleep now' %}
+        <br> {% trans 'Or if you like bothering yourself, add a TODO' %}
+        <br> <a href="{% url 'add_todo' %}" class="btn btn-warning" style="">{% trans 'Add TODO' %}</a>
+    </p>
+    </div>
+{% else %}
     {% for todo in todos %}
-        <a href="{% url 'show_todo' todo.id%}" >
-            <p {% if todo.is_important %} style="color: red" {% endif %}>
+<div id="all" {% if todo.is_important %} class="alert alert-danger" {% else %}class="alert alert-secondary"{% endif %} role="alert">
+<div class="row">
 
-                {{ todo.title }}
-            </p>
-        </a>
+    <div class="col-md-10"><a style="text-decoration: none;color: black;" href="{% url 'show_todo' todo.id %}"> <p style="padding-top: 5px">{{todo.title}}</p></a></div>
+    <div style="padding: 5px" class="col-md-1"><a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger">{% trans 'Del' %}</a> </div>
+    <div  style="padding: 5px" class="col-md-1">
+        <form style="display: inline" action="{% url 'complate_todo' todo.id %}" method="post">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-warning">{% trans 'Done' %}</button>
+        </form>
+    </div>
 
+</div>
+
+</div>
     {% endfor %}
+{% endif %}
 
-    <a href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >add todo</a>
-
-    <form method="post" action="{% url 'clear_todo' %}" style="display: inline">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-danger">Clear</button>
-    </form>
+{#    <form method="post" action="{% url 'clear_todo' %}" style="display: inline">#}
+{#        {% csrf_token %}#}
+{#        <button type="submit" class="btn btn-outline-danger">Clear</button>#}
+{#    </form>#}
 {% endblock %}

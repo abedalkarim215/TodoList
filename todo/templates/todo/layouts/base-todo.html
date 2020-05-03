@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="{% static 'user_auth/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'todo/css/style-todo.css' %}">
 
-    <link rel="icon" type="image/png"  href="{% static 'todo/images/icons/icon3.png' %}">
+    <link rel="icon" type="image/png"  href="{% static 'todo/images/icons/icon.png' %}">
     <title>{{ title }}</title>
 </head>
 <body>
 
 
 {% include 'todo/layouts/navbar.html' %}
-
 <div class="container">
+<br>
+<div style="text-align: center">
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+             {{ message }}
+        </div>
+    {% endfor %}
+</div>
 {% block content %}
 
 {% endblock %}
 </div>
-
 <script src="{% static 'user_auth/js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'user_auth/js/bootstrap.min.js' %}"></script>
 </body>

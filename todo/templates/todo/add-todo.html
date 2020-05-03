@@ -1,26 +1,46 @@
 {% extends 'todo/layouts/base-todo.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 
-    <h1>add todos : </h1>
-    <form method="post" action="{% url 'add_todo' %}">
+    <h1 class="" style="text-align: center">^^ {% trans 'Add a Todo' %} ^^</h1>
+<form method="post" action="{% url 'add_todo'%}">
     {% csrf_token %}
-        <label>title :</label>
-        <br>
-        <input maxlength="100" type="text" name="title">
-        <br>
-        <label>description :</label>
-        <br>
-        <textarea name="description" rows="7" cols="100"></textarea>
-        <br>
-        <label>is_important :</label>
-        <br>
-        <input type="checkbox" name="is_important">
-        <br>
-        <button class="btn btn-outline-warning" type="submit" >add todo</button>
+  <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlInput1">{% trans 'Title' %} : </label>
+    <input name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Tilte" >
+  </div>
 
-    </form>
+  <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlTextarea1">{% trans 'Description' %} :</label>
+    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="7" cols="100">{{ description }}</textarea>
+  </div>
+      <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlTextarea1">{% trans 'Is Important' %} :</label>
+      <select name="is_important" style="width: 100px">
+          {% if is_important %}
+              <option value="YES" selected> {% trans 'YES' %} </option>
+              <option value="NO" > {% trans 'NO' %}  </option>
+          {% else %}
+              <option value="YES"> {% trans 'YES' %} </option>
+              <option value="NO" selected> {% trans 'NO' %}  </option>
+          {% endif %}
 
+      </select>
+  </div>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6">
+                <button class="btn btn-warning" type="submit" style="display: block;width: 100%">{% trans 'Save' %}</button>
+
+        </div>
+        <div class="col-md-6">
+                <a href="{% url 'todo_not_done' %}" style="display: block;width: 100%" class="btn btn-outline-danger">{% trans 'Cancel' %}</a>
+
+        </div>
+    </div>
+
+
+</form>
 
 
 {% endblock %}

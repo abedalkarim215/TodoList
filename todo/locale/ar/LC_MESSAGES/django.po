@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-26 02:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\todo\templates\todo\add-todo.html:5
+msgid "Add a Todo"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\add-todo.html:9
+#: .\todo\templates\todo\edit_todo.html:8
+msgid "Title"
+msgstr "العنوان"
+
+#: .\todo\templates\todo\add-todo.html:14
+#: .\todo\templates\todo\delete_todo.html:16
+#: .\todo\templates\todo\edit_todo.html:13
+#: .\todo\templates\todo\show_todo.html:9
+msgid "Description"
+msgstr "التفاصيل"
+
+#: .\todo\templates\todo\add-todo.html:18
+#: .\todo\templates\todo\edit_todo.html:17
+msgid "Is Important"
+msgstr "هل هي مهمة"
+
+#: .\todo\templates\todo\add-todo.html:21
+#: .\todo\templates\todo\add-todo.html:24
+#: .\todo\templates\todo\delete_todo.html:25
+#: .\todo\templates\todo\edit_todo.html:20
+#: .\todo\templates\todo\edit_todo.html:23
+#: .\todo\templates\todo\show_todo.html:18
+msgid "YES"
+msgstr "نعم"
+
+#: .\todo\templates\todo\add-todo.html:22
+#: .\todo\templates\todo\add-todo.html:25
+#: .\todo\templates\todo\delete_todo.html:27
+#: .\todo\templates\todo\edit_todo.html:21
+#: .\todo\templates\todo\edit_todo.html:24
+#: .\todo\templates\todo\show_todo.html:20
+msgid "NO"
+msgstr "لا"
+
+#: .\todo\templates\todo\add-todo.html:33
+msgid "Save"
+msgstr "حفظ"
+
+#: .\todo\templates\todo\add-todo.html:37 .\todo\templates\todo\clear.html:19
+#: .\todo\templates\todo\delete_todo.html:43
+#: .\todo\templates\todo\edit_todo.html:36
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: .\todo\templates\todo\clear.html:5
+msgid "Warning!"
+msgstr "تحذير!!"
+
+#: .\todo\templates\todo\clear.html:7
+#, fuzzy
+#| msgid "Are You Sure You Wanna Delete All the
+msgid "Are You Sure You Wanna Delete All the TODO's"
+msgstr "هل أنت متأكد أنك تريد حذف جميع المهام"
+
+#: .\todo\templates\todo\clear.html:14
+#: .\todo\templates\todo\delete_todo.html:38
+msgid "Yes"
+msgstr "نعم"
+
+#: .\todo\templates\todo\delete_todo.html:9
+msgid "Are You Sure You Wanna Delete The TODO Below"
+msgstr "هل أنت متأكد أنك تريد حذف هذه المهمة"
+
+#: .\todo\templates\todo\delete_todo.html:23
+#: .\todo\templates\todo\show_todo.html:16
+msgid "Is This An Important TODO"
+msgstr "هل هذه المهمة مهمة هههه"
+
+#: .\todo\templates\todo\edit_todo.html:32
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: .\todo\templates\todo\layouts\navbar.html:5
+msgid "Todo List App"
+msgstr "تطبيق إدارة المهام"
+
+#: .\todo\templates\todo\layouts\navbar.html:16
+msgid "Current"
+msgstr "المهام الحالية"
+
+#: .\todo\templates\todo\layouts\navbar.html:19
+msgid "Compelted"
+msgstr "المهام المكتملة"
+
+#: .\todo\templates\todo\layouts\navbar.html:29
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+#: .\todo\templates\todo\layouts\navbar.html:33
+msgid "Login"
+msgstr "تسجيل دخول"
+
+#: .\todo\templates\todo\layouts\navbar.html:34
+msgid "Sign up"
+msgstr "إنشاء حساب"
+
+#: .\todo\templates\todo\show_todo.html:31
+msgid "Uncompleted"
+msgstr "غير مكتملة"
+
+#: .\todo\templates\todo\show_todo.html:34
+#: .\todo\templates\todo\show_todo.html:45
+msgid "Delete"
+msgstr "حذف"
+
+#: .\todo\templates\todo\show_todo.html:38
+msgid "EDIT"
+msgstr "تعديل"
+
+#: .\todo\templates\todo\show_todo.html:42
+msgid "Complete"
+msgstr "إكتملت"
+
+#: .\todo\templates\todo\todo-done.html:13
+#: .\todo\templates\todo\todo-done.html:17
+msgid "Complated Todos"
+msgstr "المهام المكتملة"
+
+#: .\todo\templates\todo\todo-done.html:19
+#: .\todo\templates\todo\todo_not_done.html:21
+msgid "Clear"
+msgstr "حذف الكل"
+
+#: .\todo\templates\todo\todo-done.html:28
+msgid "OoooH  Unfortunately, you didn't complete any of the TODO's"
+msgstr "أوووه ، للأسف أنت لم تكمل وأي مهمة"
+
+#: .\todo\templates\todo\todo-done.html:29
+msgid "You are a very lazy person"
+msgstr "أنت رجل كسول جدا"
+
+#: .\todo\templates\todo\todo-done.html:30
+msgid "And this is the kind of people I like"
+msgstr "وهذا النوع من الناس أنا أحب هههه"
+
+#: .\todo\templates\todo\todo-done.html:31
+msgid "Unless you wanna exhaust yourself to finish the TODO's that you set"
+msgstr "إلا اذا أردت أن تتعب نفسك وتكمل المهام التي قمت بوضعها"
+
+#: .\todo\templates\todo\todo-done.html:32
+msgid "Your Unfinish TODO's"
+msgstr "المهام الغير مكتملة"
+
+#: .\todo\templates\todo\todo-done.html:41
+#: .\todo\templates\todo\todo_not_done.html:40
+msgid "Del"
+msgstr "حذف"
+
+#: .\todo\templates\todo\todo_not_done.html:13
+#: .\todo\templates\todo\todo_not_done.html:19
+msgid "Current Todos"
+msgstr "المهام الحالية"
+
+#: .\todo\templates\todo\todo_not_done.html:16
+msgid "add todo"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\todo_not_done.html:28
+msgid "WooooW , You dont have any thing to do"
+msgstr "وااااو ، ليس عليك فعل أي شيء من المهام"
+
+#: .\todo\templates\todo\todo_not_done.html:29
+msgid "You can go to sleep now"
+msgstr "تستطيع الذهاب للنوم الان"
+
+#: .\todo\templates\todo\todo_not_done.html:30
+msgid "Or if you like bothering yourself, add a TODO"
+msgstr "أو يمكنك أن تزعج نفسك وتضع بعض المهام"
+
+#: .\todo\templates\todo\todo_not_done.html:31
+msgid "Add TODO"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\todo_not_done.html:44
+msgid "Done"
+msgstr "تم"

@@ -1,26 +1,44 @@
 
 {% extends 'todo/layouts/base-todo.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
-    <form method="post" action="{% url 'edit_todo' todo.id%}" >
-        {% csrf_token %}
-            <label>title :</label>
-            <br>
-            <input type="text" name="title" value="{{ todo.title }}">
-            <br>
-            <label >description :</label>
-            <br>
-            <textarea name="description" rows="7" cols="100">{{ todo.description }}</textarea>
-            <br>
-            <label>is_important :</label>
-            <br>
-            <input type="checkbox" name="is_important" {% if todo.is_important %}checked{% endif %}>
-            <br>
-            <button class="btn btn-outline-warning" type="submit" >save changes</button>
-            <a href="{% url 'show_todo' todo.id %}">
-                <button class="btn btn-outline-danger" type="button" >Cancel</button>
-            </a>
+    <form method="post" action="{% url 'edit_todo' todo.id%}">
+    {% csrf_token %}
+  <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlInput1">{% trans 'Title' %} : </label>
+    <input name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Tilte" value="{{ todo.title }}">
+  </div>
 
-    </form>
+  <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlTextarea1">{% trans 'Description' %} :</label>
+    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="7" cols="100">{{ todo.description }}</textarea>
+  </div>
+      <div class="form-group">
+    <label style="font-size: 20px;font-weight: 500" for="exampleFormControlTextarea1">{% trans 'Is Important' %} :</label>
+      <select name="is_important" style="width: 100px">
+          {% if todo.is_important %}
+          <option value="YES" selected> {% trans 'YES' %} </option>
+          <option value="NO"> {% trans 'NO' %}  </option>
+          {% else %}
+              <option value="YES"> {% trans 'YES' %} </option>
+              <option value="NO" selected> {% trans 'NO' %}  </option>
+          {% endif%}
+
+      </select>
+  </div>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6">
+                <button class="btn btn-warning" type="submit" style="display: block;width: 100%">{% trans 'Save Changes' %}</button>
+
+        </div>
+        <div class="col-md-6">
+                <a href="{% url 'show_todo' todo.id %}" style="display: block;width: 100%" class="btn btn-outline-danger">{% trans 'Cancel' %}</a>
+
+        </div>
+    </div>
+
+
+</form>
 
 {% endblock %}

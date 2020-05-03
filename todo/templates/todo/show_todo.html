@@ -1,40 +1,49 @@
 {% extends 'todo/layouts/base-todo.html' %}
-{% load static %}
+{% load i18n %}
 {% block content %}
 
-<h3>{{ todo.title }}</h3>
-    <p style="padding :10px;border: black solid 2px">{{ todo.description }}</p>
-    <form>
-        <label>
-        is important
-            <input type="checkbox" disabled {% if todo.is_important %} checked {% endif %}>
-        </label>
-    </form>
+    <div class="alert" style="background-color: #bdbdbd" role="alert">
+  <h4 style="text-align: center" class="alert-heading">{{todo.title}}</h4>
+        <hr>
+  <p>
+      <span style="font-size: 20px;font-weight: 500"> {% trans 'Description' %} : </span>
+      <br>
+      <br>
+      <span style="margin-left: 100px"> {{ todo.description }}</span>
+  </p>
+  <hr>
+        <p class="">
+            <span style="font-size: 20px;font-weight: 500"> {% trans 'Is This An Important TODO' %}  : </span>
+            {% if todo.is_important %}
+                <span style="font-size: 20px">{% trans 'YES' %}  </span>
+            {% else %}
+                <span style="font-size: 20px">{% trans 'NO' %} </span>
+
+            {% endif %} </p>
+</div>
+    <hr class="my-4">
     {% if todo.date_completed %}
 
-        <form style="display: inline" method="post" action="{% url 'complate_todo' todo.id %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-warning">Uncomplete</button>
+        <div class="row">
+        <div class="col-md-6">
+            <form style="display: inline"  method="post" action="{% url 'complate_todo' todo.id %}">
+                {% csrf_token %}
+        <button style="display: block;width: 100%" type="submit" class="btn btn-warning">{% trans 'Uncompleted' %}</button>
         </form>
-
-
-        <form style="display: inline" method="post" action="{% url 'delete_todo' todo.id %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-warning">delete</button>
-        </form>
+        </div>
+        <div class="col-md-6"><a href="{% url 'delete_todo' todo.id %}" style="display: block" class="btn btn-danger">{% trans 'Delete' %}</a></div>
+        </div>
     {% else %}
-
-        <a href="{% url 'edit_todo' todo.id %}" class="btn btn-outline-warning">edit</a>
-
-        <form style="display: inline" method="post" action="{% url 'complate_todo' todo.id %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-warning">complete</button>
+        <div class="row">
+        <div class="col-md-4"><a href="{% url 'edit_todo' todo.id %}" style="display: block" class="btn btn-secondary">{% trans 'EDIT' %}</a></div>
+        <div class="col-md-4">
+            <form style="display: inline"  method="post" action="{% url 'complate_todo' todo.id %}">
+                {% csrf_token %}
+        <button style="display: block;width: 100%" type="submit" class="btn btn-warning">{% trans 'Complete' %}</button>
         </form>
+        </div>
+        <div class="col-md-4"><a href="{% url 'delete_todo' todo.id %}" style="display: block" class="btn btn-danger">{% trans 'Delete' %}</a></div>
+        </div>
 
-        <form style="display: inline" method="post" action="{% url 'delete_todo' todo.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-warning">delete</button>
-        </form>
-
-    {% endif %}
+    {% endif%}
 {% endblock %}
