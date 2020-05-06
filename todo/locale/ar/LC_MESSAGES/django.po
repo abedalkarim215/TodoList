@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 02:57+0300\n"
+"POT-Creation-Date: 2020-05-06 18:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr "لا"
 msgid "Save"
 msgstr "حفظ"
 
-#: .\todo\templates\todo\add-todo.html:37 .\todo\templates\todo\clear.html:19
+#: .\todo\templates\todo\add-todo.html:37 .\todo\templates\todo\clear.html:22
 #: .\todo\templates\todo\delete_todo.html:43
 #: .\todo\templates\todo\edit_todo.html:36
 msgid "Cancel"
@@ -73,19 +73,17 @@ msgid "Warning!"
 msgstr "تحذير!!"
 
 #: .\todo\templates\todo\clear.html:7
-#, fuzzy
-#| msgid "Are You Sure You Wanna Delete All the
 msgid "Are You Sure You Wanna Delete All the TODO's"
-msgstr "هل أنت متأكد أنك تريد حذف جميع المهام"
+msgstr "هل أنت متأكد أنك تريد حذف جميع المهام؟"
 
-#: .\todo\templates\todo\clear.html:14
+#: .\todo\templates\todo\clear.html:17
 #: .\todo\templates\todo\delete_todo.html:38
 msgid "Yes"
 msgstr "نعم"
 
 #: .\todo\templates\todo\delete_todo.html:9
 msgid "Are You Sure You Wanna Delete The TODO Below"
-msgstr "هل أنت متأكد أنك تريد حذف هذه المهمة"
+msgstr "هل أنت متأكد أنك تريد حذف جميع المهمة"
 
 #: .\todo\templates\todo\delete_todo.html:23
 #: .\todo\templates\todo\show_todo.html:16
@@ -142,61 +140,69 @@ msgstr "إكتملت"
 msgid "Complated Todos"
 msgstr "المهام المكتملة"
 
-#: .\todo\templates\todo\todo-done.html:19
-#: .\todo\templates\todo\todo_not_done.html:21
+#: .\todo\templates\todo\todo-done.html:22
+#: .\todo\templates\todo\todo_not_done.html:33
 msgid "Clear"
 msgstr "حذف الكل"
 
-#: .\todo\templates\todo\todo-done.html:28
+#: .\todo\templates\todo\todo-done.html:34
 msgid "OoooH  Unfortunately, you didn't complete any of the TODO's"
 msgstr "أوووه ، للأسف أنت لم تكمل وأي مهمة"
 
-#: .\todo\templates\todo\todo-done.html:29
+#: .\todo\templates\todo\todo-done.html:35
 msgid "You are a very lazy person"
 msgstr "أنت رجل كسول جدا"
 
-#: .\todo\templates\todo\todo-done.html:30
+#: .\todo\templates\todo\todo-done.html:36
 msgid "And this is the kind of people I like"
 msgstr "وهذا النوع من الناس أنا أحب هههه"
 
-#: .\todo\templates\todo\todo-done.html:31
+#: .\todo\templates\todo\todo-done.html:37
 msgid "Unless you wanna exhaust yourself to finish the TODO's that you set"
 msgstr "إلا اذا أردت أن تتعب نفسك وتكمل المهام التي قمت بوضعها"
 
-#: .\todo\templates\todo\todo-done.html:32
+#: .\todo\templates\todo\todo-done.html:38
 msgid "Your Unfinish TODO's"
 msgstr "المهام الغير مكتملة"
 
-#: .\todo\templates\todo\todo-done.html:41
-#: .\todo\templates\todo\todo_not_done.html:40
+#: .\todo\templates\todo\todo-done.html:47
+#: .\todo\templates\todo\todo_not_done.html:76
 msgid "Del"
 msgstr "حذف"
 
 #: .\todo\templates\todo\todo_not_done.html:13
-#: .\todo\templates\todo\todo_not_done.html:19
+#: .\todo\templates\todo\todo_not_done.html:29
 msgid "Current Todos"
 msgstr "المهام الحالية"
 
-#: .\todo\templates\todo\todo_not_done.html:16
+#: .\todo\templates\todo\todo_not_done.html:19
 msgid "add todo"
 msgstr "إضافة مهمة"
 
-#: .\todo\templates\todo\todo_not_done.html:28
+#: .\todo\templates\todo\todo_not_done.html:24
+msgid "Filter"
+msgstr "تصفية"
+
+#: .\todo\templates\todo\todo_not_done.html:52
+msgid "Search"
+msgstr "بحث"
+
+#: .\todo\templates\todo\todo_not_done.html:64
 msgid "WooooW , You dont have any thing to do"
 msgstr "وااااو ، ليس عليك فعل أي شيء من المهام"
 
-#: .\todo\templates\todo\todo_not_done.html:29
+#: .\todo\templates\todo\todo_not_done.html:65
 msgid "You can go to sleep now"
 msgstr "تستطيع الذهاب للنوم الان"
 
-#: .\todo\templates\todo\todo_not_done.html:30
+#: .\todo\templates\todo\todo_not_done.html:66
 msgid "Or if you like bothering yourself, add a TODO"
 msgstr "أو يمكنك أن تزعج نفسك وتضع بعض المهام"
 
-#: .\todo\templates\todo\todo_not_done.html:31
+#: .\todo\templates\todo\todo_not_done.html:67
 msgid "Add TODO"
 msgstr "إضافة مهمة"
 
-#: .\todo\templates\todo\todo_not_done.html:44
+#: .\todo\templates\todo\todo_not_done.html:80
 msgid "Done"
 msgstr "تم"

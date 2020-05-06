@@ -8,7 +8,7 @@
     </style>
 
     <div class="row">
-    {% if all_clear %}
+    {% if not todos %}
         <div class="col-md-12">
 <h1 class="" style="text-align: center">^^ {% trans 'Complated Todos' %} ^^</h1>
     </div>
@@ -16,14 +16,20 @@
         <div class="col-md-10">
 <h1 class="" style="text-align: center">^^ {% trans 'Complated Todos' %} ^^</h1>
     </div>
-<div class="col-md-2"> <a style="display: block;margin: 5px" href="{% url 'clear_todo' %}" class="btn btn-danger" >{% trans 'Clear' %}</a></div>
+<div class="col-md-2">
+<form action="{% url 'clear_todo' %}" method="get" style="display:inline;margin: 5px;">
+        <input hidden name="COM" type="text">
+        <button style="min-width: 130px" type="submit" class="btn btn-danger">{% trans 'Clear' %}</button>
+
+    </form>
+</div>
 
         {% endif %}
 
 </div>
     <br>
     <hr class="my-4">
-{% if all_clear %}
+{% if not todos %}
     <div style="background-color: #ffe8a1;height: 300px">
     <p style="text-align: center;font-size: 30px"> {% trans "OoooH  Unfortunately, you didn't complete any of the TODO's" %}
 <br>{% trans 'You are a very lazy person' %}

@@ -1,0 +1,11 @@
+ {% load i18n %}
+<form method="get">
+        {% for i in todo_filter.form %}
+            {{ i.label }} :
+            {{ i }}
+
+            <br>
+            <br>
+        {% endfor %}
+        <button class="btn btn-info" style="width: 100%">{% trans 'Search' %}</button>
+</form>

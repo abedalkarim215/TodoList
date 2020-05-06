@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
-
+from .filters import Todo_Filter
 
 def home(request) :
     return render(request,'todo/layouts/base-todo.html')
@@ -13,26 +13,24 @@ def home(request) :
 
 @login_required(login_url='login_user')
 def todo_not_done(request) :
+
     todos = Todo.objects.filter(user=request.user, date_completed__isnull=True)
-    all_clear = False
-    if todos.__len__() == 0:
-        all_clear = True
+    todo_filter = Todo_Filter(request.GET, queryset=todos)
+    todos = todo_filter.qs
     context = {
         'todos' : todos,
-        'all_clear' : all_clear,
+        'todo_filter' : todo_filter,
     }
+
     return render(request,'todo/todo_not_done.html',context)
 
 
 @login_required(login_url='login_user')
 def todo_done(request) :
     todos = Todo.objects.filter(user=request.user, date_completed__isnull=False)
-    all_clear = False
-    if todos.__len__() == 0:
-        all_clear = True
+
     context = {
         'todos': todos,
-        'all_clear': all_clear,
     }
     return render(request, 'todo/todo-done.html',context)
 
@@ -136,7 +134,12 @@ def complate_todo(request,todo_id) :
 @login_required(login_url='login_user')
 def clear_todo(request) :
     if request.method == "GET" :
-        return render(request,'todo/clear.html')
+        COM =("COM" in request.GET)
+        context = {
+            'COM' : COM,
+
+        }
+        return render(request,'todo/clear.html',context)
     elif request.method == "POST" :
         if "COM" in request.POST :
             todo = Todo.objects.filter(user=request.user, date_completed__isnull=False)
@@ -152,4 +155,6 @@ def clear_todo(request) :
             else:
                 todo.delete()
             return render(request, 'todo/todo_not_done.html')
+
+
 

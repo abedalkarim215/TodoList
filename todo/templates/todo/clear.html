@@ -9,6 +9,9 @@
 </div>
     <form method="post" action="{% url 'clear_todo' %}">
     {% csrf_token %}
+        {%  if COM %}
+            <input hidden name="COM" type="text">
+        {% endif%}
     <div class="row">
         <div class="col-md-6">
                 <button style="display: inline;width: 100%" type="submit" class="btn btn-outline-danger">{% trans 'Yes' %}</button>
