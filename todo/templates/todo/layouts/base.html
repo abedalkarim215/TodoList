@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'todo/css/style-todo.css' %}">
 
     <link rel="icon" type="image/png"  href="{% static 'todo/images/icons/icon.png' %}">
-    <title>{{ title }}</title>
+    <title>{% block title %}{%endblock%}</title>
 </head>
 <body>
 
@@ -29,5 +29,7 @@
 </div>
 <script src="{% static 'user_auth/js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'user_auth/js/bootstrap.min.js' %}"></script>
+{% block js %}
+{% endblock %}
 </body>
 </html>

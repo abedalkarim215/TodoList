@@ -1,0 +1,447 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-17 07:22+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\todo\templates\todo\account_settings.html:9
+#: .\todo\templates\todo\index.html:27
+msgid "Account Settings"
+msgstr "إعدادات الحساب"
+
+#: .\todo\templates\todo\account_settings.html:12
+msgid "Your Account Information"
+msgstr "تفاصيل الحساب الخاص بك"
+
+#: .\todo\templates\todo\account_settings.html:15
+msgid "First Name"
+msgstr "الإسم الأول"
+
+#: .\todo\templates\todo\account_settings.html:16
+msgid "Last Name"
+msgstr "الإسم الأخير"
+
+#: .\todo\templates\todo\account_settings.html:17
+#: .\user_auth\templates\user_auth\edit_information.html:39
+#: .\user_auth\templates\user_auth\login.html:23
+#: .\user_auth\templates\user_auth\sign_up.html:39
+msgid "Username"
+msgstr "إسم المستخدم"
+
+#: .\todo\templates\todo\account_settings.html:18
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\todo\templates\todo\account_settings.html:19
+#: .\user_auth\templates\user_auth\edit_information.html:47
+msgid "Gender"
+msgstr "الجنس"
+
+#: .\todo\templates\todo\account_settings.html:23
+msgid "Edit Account Information"
+msgstr "تعديل تفاصيل حسابك"
+
+#: .\todo\templates\todo\account_settings.html:28
+#: .\user_auth\templates\user_auth\login.html:27
+#: .\user_auth\templates\user_auth\sign_up.html:48
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\todo\templates\todo\account_settings.html:31
+msgid "Your Password"
+msgstr "كلمة المرور الخاصة بك"
+
+#: .\todo\templates\todo\account_settings.html:35
+msgid "Change The Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\todo\templates\todo\account_settings.html:42
+msgid "Delete Your Accounts"
+msgstr "حذف الحساب الخاص بك"
+
+#: .\todo\templates\todo\add-todo.html:6
+msgid "Add a Todo"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\add-todo.html:10
+#: .\todo\templates\todo\edit_todo.html:8
+msgid "Title"
+msgstr "العنوان"
+
+#: .\todo\templates\todo\add-todo.html:15
+#: .\todo\templates\todo\delete_todo.html:16
+#: .\todo\templates\todo\edit_todo.html:13
+#: .\todo\templates\todo\show_todo.html:10
+msgid "Description"
+msgstr "التفاصيل"
+
+#: .\todo\templates\todo\add-todo.html:19
+#: .\todo\templates\todo\edit_todo.html:17
+msgid "Is Important"
+msgstr "مهمة أم لا ؟"
+
+#: .\todo\templates\todo\add-todo.html:22
+#: .\todo\templates\todo\add-todo.html:25
+#: .\todo\templates\todo\delete_todo.html:25
+#: .\todo\templates\todo\edit_todo.html:20
+#: .\todo\templates\todo\edit_todo.html:23
+#: .\todo\templates\todo\show_todo.html:19
+msgid "YES"
+msgstr "نعم"
+
+#: .\todo\templates\todo\add-todo.html:23
+#: .\todo\templates\todo\add-todo.html:26
+#: .\todo\templates\todo\delete_todo.html:27
+#: .\todo\templates\todo\edit_todo.html:21
+#: .\todo\templates\todo\edit_todo.html:24
+#: .\todo\templates\todo\show_todo.html:21
+msgid "NO"
+msgstr "لا"
+
+#: .\todo\templates\todo\add-todo.html:34
+msgid "Save"
+msgstr "حفظ"
+
+#: .\todo\templates\todo\add-todo.html:38 .\todo\templates\todo\clear.html:69
+#: .\todo\templates\todo\delete_todo.html:43
+#: .\todo\templates\todo\edit_todo.html:36
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: .\todo\templates\todo\clear.html:39
+msgid "Warning!"
+msgstr "تحذير!"
+
+#: .\todo\templates\todo\clear.html:57
+msgid "Are You Sure You Wanna Delete All the TODO's ?"
+msgstr "هل أنت متأكد أنك تريد حذف جميع المهام؟"
+
+#: .\todo\templates\todo\clear.html:65
+#: .\todo\templates\todo\delete_todo.html:38
+#: .\user_auth\templates\user_auth\logout.html:31
+msgid "Yes"
+msgstr "نعم"
+
+#: .\todo\templates\todo\delete_todo.html:9
+msgid "Are You Sure You Wanna Delete The TODO Below"
+msgstr "هل أنت متأكد أنك تريد حذف هذه المهمة ؟"
+
+#: .\todo\templates\todo\delete_todo.html:23
+#: .\todo\templates\todo\show_todo.html:17
+msgid "Is This An Important TODO"
+msgstr "هل هذه المهمة مهمة ؟ hhh"
+
+#: .\todo\templates\todo\edit_todo.html:32
+#: .\user_auth\templates\user_auth\edit_information.html:67
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: .\todo\templates\todo\index.html:6
+msgid "TODO APP"
+msgstr "تطبيق المهام"
+
+#: .\todo\templates\todo\index.html:13
+msgid "Curent TODO's"
+msgstr "المهام الحالية"
+
+#: .\todo\templates\todo\index.html:19
+msgid "Completed TODO's"
+msgstr "المهام المكتملة"
+
+#: .\todo\templates\todo\index.html:32
+msgid "This APP works on managing all your tasks and arrange them ."
+msgstr "هذه التطبيق يعمل على إدارة جميع مهامك وترتيبها ."
+
+#: .\todo\templates\todo\index.html:35
+#: .\user_auth\templates\user_auth\login.html:32
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\todo\templates\todo\index.html:38
+msgid "Create an account"
+msgstr "إنشاء حساب"
+
+#: .\todo\templates\todo\layouts\filter.html:11
+msgid "Search"
+msgstr "بحث"
+
+#: .\todo\templates\todo\layouts\navbar.html:5
+msgid "Todo List App"
+msgstr "تطبيق إدارة المهام"
+
+#: .\todo\templates\todo\layouts\navbar.html:18
+#: .\todo\templates\todo\layouts\navbar.html:39
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\todo\templates\todo\layouts\navbar.html:26
+msgid "Current"
+msgstr "المهام الحالية"
+
+#: .\todo\templates\todo\layouts\navbar.html:29
+msgid "Compelted"
+msgstr "المهام المكتملة"
+
+#: .\todo\templates\todo\show_todo.html:32
+msgid "Uncompleted"
+msgstr "غير مكتملة"
+
+#: .\todo\templates\todo\show_todo.html:35
+#: .\todo\templates\todo\show_todo.html:46
+msgid "Delete"
+msgstr "حذف"
+
+#: .\todo\templates\todo\show_todo.html:39
+msgid "EDIT"
+msgstr "تعديل"
+
+#: .\todo\templates\todo\show_todo.html:43
+msgid "Complete"
+msgstr "إكتملت"
+
+#: .\todo\templates\todo\todo-done.html:15
+#: .\todo\templates\todo\todo-done.html:19
+msgid "Complated Todos"
+msgstr "المهام المكتملة"
+
+#: .\todo\templates\todo\todo-done.html:23
+#: .\todo\templates\todo\todo_not_done.html:29
+msgid "Clear"
+msgstr "حذف الكل"
+
+#: .\todo\templates\todo\todo-done.html:35
+msgid "OoooH  Unfortunately, you didn't complete any of the TODO's"
+msgstr "أوووه ، للأسف أنت لم تكمل وأي مهمة"
+
+#: .\todo\templates\todo\todo-done.html:36
+msgid "You are a very lazy person"
+msgstr "أنت رجل كسول جدا"
+
+#: .\todo\templates\todo\todo-done.html:37
+msgid "And this is the kind of people I like"
+msgstr "وهذا النوع من الناس أنا أحب هههه"
+
+#: .\todo\templates\todo\todo-done.html:38
+msgid "Unless you wanna exhaust yourself to finish the TODO's that you set"
+msgstr "إلا اذا أردت أن تتعب نفسك وتكمل المهام التي قمت بوضعها"
+
+#: .\todo\templates\todo\todo-done.html:39
+msgid "Your Unfinish TODO's"
+msgstr "المهام الغير مكتملة"
+
+#: .\todo\templates\todo\todo-done.html:48
+#: .\todo\templates\todo\todo_not_done.html:82
+msgid "Del"
+msgstr "حذف"
+
+#: .\todo\templates\todo\todo_not_done.html:15
+msgid "add todo"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\todo_not_done.html:20
+msgid "Filter"
+msgstr "تصفية"
+
+#: .\todo\templates\todo\todo_not_done.html:25
+#: .\todo\templates\todo\todo_not_done.html:59
+msgid "Current Todos"
+msgstr "المهام الحالية"
+
+#: .\todo\templates\todo\todo_not_done.html:49
+msgid "The result of filter is :"
+msgstr "نتائج البحث :"
+
+#: .\todo\templates\todo\todo_not_done.html:52
+msgid "All TODO's"
+msgstr "جميع المهام"
+
+#: .\todo\templates\todo\todo_not_done.html:67
+msgid "There is no maching TODO's"
+msgstr "لا يوجد نتائج للبحث الذي قمت به"
+
+#: .\todo\templates\todo\todo_not_done.html:70
+msgid "WooooW , You dont have any thing to do"
+msgstr "وااااو ، ليس عليك فعل أي شيء من المهام"
+
+#: .\todo\templates\todo\todo_not_done.html:71
+msgid "You can go to sleep now"
+msgstr "تستطيع الذهاب للنوم الان"
+
+#: .\todo\templates\todo\todo_not_done.html:72
+msgid "Or if you like bothering yourself, add a TODO"
+msgstr "أو يمكنك أن تزعج نفسك وتضع بعض المهام"
+
+#: .\todo\templates\todo\todo_not_done.html:73
+msgid "Add TODO"
+msgstr "إضافة مهمة"
+
+#: .\todo\templates\todo\todo_not_done.html:86
+msgid "Done"
+msgstr "تم"
+
+#: .\user_auth\templates\user_auth\change_password.html:8
+#: .\user_auth\templates\user_auth\change_password.html:31
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\user_auth\templates\user_auth\change_password.html:17
+msgid "Current Password"
+msgstr "كلمة المرور الحالية"
+
+#: .\user_auth\templates\user_auth\change_password.html:21
+msgid "New Password"
+msgstr "كلمة مرور جديدة"
+
+#: .\user_auth\templates\user_auth\change_password.html:25
+msgid "Confirm New Password "
+msgstr "تأكيد كلمة المرور الجديدة"
+
+#: .\user_auth\templates\user_auth\delete_account.html:6
+msgid "Delete Account"
+msgstr "حذف الحساب الخاص بي"
+
+#: .\user_auth\templates\user_auth\delete_account.html:12
+msgid ""
+"this opreation can not undo it , if you sure about deleting your account , "
+"please enter your password and write this text in the second input below"
+msgstr ""
+"هذه العملية لا يمكن التراجع عنها ، اذا ما زلت متأكدا بالنسبة لحذف حسابك ، "
+"الرجاء ادخال كلمة المرور الخاضة بك وإدخال النص الظاهر في المكان المخصص به."
+
+#: .\user_auth\templates\user_auth\delete_account.html:17
+msgid "Enter your password"
+msgstr "أدخل كلمة المرور"
+
+#: .\user_auth\templates\user_auth\delete_account.html:21
+msgid "Enter the text here"
+msgstr "أدخل االنص هنا"
+
+#: .\user_auth\templates\user_auth\delete_account.html:28
+msgid "Submit"
+msgstr "تأكيد"
+
+#: .\user_auth\templates\user_auth\edit_information.html:6
+msgid "Account information"
+msgstr "معلومات الحساب الخاص بك"
+
+#: .\user_auth\templates\user_auth\edit_information.html:27
+#: .\user_auth\templates\user_auth\sign_up.html:27
+msgid "First name"
+msgstr "الإسم الأول"
+
+#: .\user_auth\templates\user_auth\edit_information.html:33
+#: .\user_auth\templates\user_auth\sign_up.html:33
+msgid "Last name"
+msgstr "الإسم الأخير"
+
+#: .\user_auth\templates\user_auth\edit_information.html:43
+#: .\user_auth\templates\user_auth\sign_up.html:43
+msgid "Email address"
+msgstr "البريد الالكتروني"
+
+#: .\user_auth\templates\user_auth\edit_information.html:50
+#: .\user_auth\templates\user_auth\edit_information.html:54
+#: .\user_auth\templates\user_auth\edit_information.html:58
+msgid "Male"
+msgstr "ذكر"
+
+#: .\user_auth\templates\user_auth\edit_information.html:51
+#: .\user_auth\templates\user_auth\edit_information.html:55
+#: .\user_auth\templates\user_auth\edit_information.html:59
+msgid "Female"
+msgstr "أنثى"
+
+#: .\user_auth\templates\user_auth\edit_information.html:52
+#: .\user_auth\templates\user_auth\edit_information.html:56
+#: .\user_auth\templates\user_auth\edit_information.html:60
+msgid "None"
+msgstr "غير محدد"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:12
+#, fuzzy
+#| msgid "Password"
+msgid "Password Generator"
+msgstr "كلمة المرور"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:27
+msgid "Length"
+msgstr "الطول"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:31
+msgid "Uppercase"
+msgstr "حروف كبيرة"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:34
+msgid "Numbers"
+msgstr "أرقام"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:37
+msgid "Special Characters"
+msgstr "رموز"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:40
+msgid "Arabic Letters"
+msgstr "حروف من اللغة العربية"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password.html:43
+#, fuzzy
+#| msgid "Current Password"
+msgid "Generate Password"
+msgstr "إنشاء كلمة مرور"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password_result.html:4
+#, fuzzy
+#| msgid "Your Password"
+msgid "Your password is :"
+msgstr "كلمة المرور الخاصة بك :"
+
+#: .\user_auth\templates\user_auth\generate_password_function\generate_password_result.html:15
+msgid "Copy"
+msgstr "نسخ"
+
+#: .\user_auth\templates\user_auth\login.html:6
+msgid "Account Login"
+msgstr "تسجيل الدخول"
+
+#: .\user_auth\templates\user_auth\login.html:37
+msgid "dont have an account --> signUp"
+msgstr "لا تمتلك حساب ، إنشاء حساب"
+
+#: .\user_auth\templates\user_auth\logout.html:6
+msgid "Account Logout"
+msgstr "تسجيل الخروج"
+
+#: .\user_auth\templates\user_auth\logout.html:23
+msgid "Are you sure you wanna Logout?"
+msgstr "هل أنت متأكد من تسجيل الخروج ؟"
+
+#: .\user_auth\templates\user_auth\logout.html:35
+msgid "No"
+msgstr "لا"
+
+#: .\user_auth\templates\user_auth\sign_up.html:6
+#: .\user_auth\templates\user_auth\sign_up.html:79
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+#: .\user_auth\templates\user_auth\sign_up.html:74
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+#: .\user_auth\templates\user_auth\sign_up.html:84
+msgid "do u have an account --> Login"
+msgstr "تمتلك حساب ، تسجيل الدخول"

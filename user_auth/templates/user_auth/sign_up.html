@@ -1,71 +1,111 @@
-{% extends 'user_auth/base.html' %}
-
-{% block content%}
-                  <h1 style="color: moccasin;text-align: center" >
-                         Create Account
-                  </h1>
-                    <br>
-                {% if messages %}
+{% load i18n %}
+<div class="modal fade" id="exampleModal_signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="margin-bottom: 0">
+        <h5 class="modal-title" id="exampleModalLabel">{% trans 'Create Account' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% comment %}{% if messages %}
                     {% for message in messages  %}
                         <div class="alert alert-danger" role="alert">
                             {{message}}
                         </div>
                     {% endfor %}
-                {% endif %}
+                {% endif %}{% endcomment %}
 
-                  <form method="post" action="{% url 'sign_up_user' %}" class="px-4 py-3" style="background-color: white;">
+                  <form method="post" action="{% url 'sign_up_user' %}" class="px-4 py-3" style="">
                     {% csrf_token %}
-                      <div style="padding: 30px;padding-right: 50px;padding-left: 20px">
+                      <div style="">
                           <div class="row">
                               <div class="col-md-6">
                                   <div class="form-group" >
-                                      <label for="exampleDropdownFormEmail1">First name :</label>
+                                      <label for="exampleDropdownFormEmail1">{% trans 'First name' %} :</label>
                                       <input name="first_name" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="First name">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group" >
-                                      <label for="exampleDropdownFormEmail1">Last name :</label>
+                                      <label for="exampleDropdownFormEmail1">{% trans 'Last name' %} :</label>
                                       <input name="last_name" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Last name">
                                   </div>
                               </div>
                           </div>
                           <div class="form-group" >
-                              <label for="exampleDropdownFormEmail1">User name :</label>
+                              <label for="exampleDropdownFormEmail1">{% trans 'Username' %} :</label>
                               <input name="username" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="User name">
                           </div>
                         <div class="form-group" >
-                          <label for="exampleDropdownFormEmail1">Email address :</label>
+                          <label for="exampleDropdownFormEmail1">{% trans 'Email address' %} :</label>
                           <input  name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
                         </div>
-                          <label for="exampleDropdownFormPassword1">Password :</label>
+                          <div class="row">
+                              <div class="col-md-8">
+                                  <label for="exampleDropdownFormPassword1">{% trans 'Password' %} :</label>
+
+                              </div>
+                              <div class="col-md-4">
+
+                                  <button style="padding: 0;padding-right: 3px;padding-left: 3px" type="button" class="btn btn-outline-warning" onclick="myFunction()"> <span id="show_hide"> Show</span> Password</button>
+
+                              </div>
+                          </div>
                           <div class="row">
                               <div class="col-md-8">
                                 <div class="form-group">
-                                  <input  name="password1" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                  <input  name="password1"  type="password" class="form-control" id="password1" placeholder="Password">
                                 </div>
                               </div>
                               <div class="col-md-4">
-                                  <a href="{% url 'generate_password' %}">
-                                        <button style="margin-left: 0px;padding-left: 5px" type="button"class="btn btn-primary">
-                                            Generate Pass.
+                                  <a href="{% url 'generate_password' %}" target="_blank">
+                                        <button style="margin-left: 0;padding-left: 5px;font-size: 15px;width: 100%" type="button" class="btn btn-primary btn-lg">
+                                            Gen. Pass.
                                         </button>
                                   </a>
                               </div>
+
+
                           </div>
                         <div class="form-group">
-                              <label for="exampleDropdownFormPassword1">Conform Password :</label>
-                              <input name="password2" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Conform Password">
+                              <label for="exampleDropdownFormPassword1">{% trans 'Confirm Password' %} :</label>
+                              <input name="password2" type="password" class="form-control" id="password2" placeholder="Conform Password">
                         </div>
-                          <div style="text-align: center">
-                                <button style="text-align: center" type="submit" class="btn btn-primary">Sign Up</button>
-                          </div>
-                          <br>
-                          <div style="text-align: center">
-                            <a href="{% url 'login_user' %}" >
-                                <button type="button" class="btn btn-info">do u have an account --> Login</button>
-                            </a>
-                          </div>
+                          <hr class="my-4">
+                    <div style="text-align: center">
+                      <button style="display: block;width: 100%" type="submit" class="btn btn-primary">{% trans 'Create Account' %}</button>
+                    </div>
+
+                    <div style="text-align: center;margin: 20px">
+                        <button data-dismiss="modal" style="text-align: center;display: block;width: 100%" type="button"  class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal_login">
+                            <span aria-hidden="true">{% trans 'do u have an account --> Login' %}</span>
+                        </button>
+                    </div>
                       </div>
                   </form>
-{% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block js %}
+    <script>
+
+        function myFunction() {
+          var x = document.getElementById("password1");
+          var y = document.getElementById("password2");
+          var z = document.getElementById("show_hide");
+          if (x.type === "password" && y.type === "password") {
+            x.type = "text";
+            y.type = "text";
+            z.innerHTML="Hide";
+          } else {
+            x.type = "password";
+            y.type = "password";
+            z.innerHTML="Show";
+          }
+        }
+    </script>
+{% endblock%}

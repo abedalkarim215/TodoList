@@ -1,0 +1,46 @@
+{% extends 'todo/layouts/base.html' %}
+{% load i18n %}
+{% block title %}TODO | Home Page{% endblock %}
+{% block content %}
+    <div style="text-align: center">
+        <p style="font-size: 70px;">{% trans 'TODO APP' %}</p>
+
+    {% if user.is_authenticated %}
+        <p style="font-size: 50px">Welcome <span style="font-weight: 100;text-decoration: underline  #e0a800  solid ">{{ request.user.first_name }} {{ request.user.last_name }}</span> to your TODO account . </p>
+        <div>
+        <a href="{% url 'todo_not_done' %}" style="text-decoration: none">
+            <button style="display:inline;min-width: 40%;margin: 10px"  class="btn btn-warning btn-lg" >
+                    {% trans "Curent TODO's" %}
+            </button>
+            </a>
+            <a href="{% url 'todo_done' %}" style="text-decoration: none">
+
+            <button style="display:inline;min-width: 40%;margin: 10px"  class="btn btn-warning btn-lg">
+                    {% trans "Completed TODO's" %}
+            </button>
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <a href="{% url 'account_settings' %}" style="text-decoration: none">
+
+            <button style="display:inline;min-width: 40%;margin: 10px"  class="btn btn-secondary btn-lg">
+                    {% trans 'Account Settings' %}
+            </button>
+            </a>
+        </div>
+    {% else%}
+        <p style="font-size: 50px">{% trans 'This APP works on managing all your tasks and arrange them .' %}</p>
+        <div>
+            <button style="display:inline;min-width: 40%" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal_login">
+                    {% trans 'Login' %}
+            </button>
+            <button style="display:inline;min-width: 40%" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal_signup">
+                    {% trans 'Create an account' %}
+            </button>
+        </div>
+
+    {% endif%}
+    </div>
+    {% include 'user_auth/login.html' %}
+    {% include 'user_auth/sign_up.html' %}
+{% endblock %}

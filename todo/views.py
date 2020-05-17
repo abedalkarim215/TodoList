@@ -3,23 +3,35 @@ from .models import *
 from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.utils.translation import gettext as _
 from .filters import Todo_Filter
+from user_auth.models import UserProfile
 
 def home(request) :
-    return render(request,'todo/layouts/base-todo.html')
+
+    context = {
+        'nav_home' : True,
+    }
+    return render(request, 'todo/index.html',context)
 
 
 
 @login_required(login_url='login_user')
 def todo_not_done(request) :
-
     todos = Todo.objects.filter(user=request.user, date_completed__isnull=True)
-    todo_filter = Todo_Filter(request.GET, queryset=todos)
+    todo_filter = Todo_Filter(request.POST, queryset=todos)
+    empty_search = False
+    get_by_search = False
+    if request.method == "POST" :
+        get_by_search = True
+        if todo_filter.qs.__len__() == 0 :
+            empty_search = True
     todos = todo_filter.qs
+
     context = {
         'todos' : todos,
         'todo_filter' : todo_filter,
+        'empty_search' : empty_search,
+        'get_by_search' : get_by_search,
     }
 
     return render(request,'todo/todo_not_done.html',context)
@@ -94,7 +106,7 @@ def edit_todo(request,todo_id) :
         context = {
             "todo": todo,
         }
-        return render(request,'todo/show_todo.html',context)
+        return redirect('show_todo',todo.id)
 
 
 
@@ -134,10 +146,7 @@ def complate_todo(request,todo_id) :
 @login_required(login_url='login_user')
 def clear_todo(request) :
     if request.method == "GET" :
-        COM =("COM" in request.GET)
         context = {
-            'COM' : COM,
-
         }
         return render(request,'todo/clear.html',context)
     elif request.method == "POST" :
@@ -147,14 +156,25 @@ def clear_todo(request) :
                 messages.info(request, 'there is nothing to clear')
             else :
                 todo.delete()
-            return render(request,'todo/todo-done.html')
+                messages.info(request, 'Delete all the TODO\'s done Successfully')
+            return redirect('todo_done')
         else :
             todo = Todo.objects.filter(user=request.user, date_completed__isnull=True)
             if todo.__len__() == 0:
                 messages.info(request, 'there is nothing to clear')
             else:
                 todo.delete()
-            return render(request, 'todo/todo_not_done.html')
+                messages.info(request, 'Delete all the TODO\'s done Successfully')
+            return redirect('todo_not_done')
 
 
 
+@login_required(login_url='login_user')
+def account_settings(request) :
+    user = get_object_or_404(User,pk=request.user.id)
+    user_profile = get_object_or_404(UserProfile,user=request.user)
+    context = {
+        'user_' : user,
+        'user_profile' : user_profile,
+    }
+    return render(request,'todo/account_settings.html',context)

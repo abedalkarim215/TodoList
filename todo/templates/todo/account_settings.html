@@ -1,0 +1,48 @@
+{% extends 'todo/layouts/base.html' %}
+{% load i18n %}
+{% block title %}TODO | Account Settings{% endblock %}
+{% block content %}
+    {% include 'user_auth/edit_information.html' %}
+    {% include 'user_auth/change_password.html' %}
+    {% include 'user_auth/delete_account.html' %}
+    <div style="text-align: center">
+        <p style="font-size: 50px;text-decoration: underline #ffc107">{% trans 'Account Settings' %}</p>
+    <br>
+    </div>
+    <h4>{% trans 'Your Account Information' %} :</h4>
+    <p class="lead">
+
+            <span style="font-weight: 400">{% trans 'First Name' %} : </span>{{ user_.first_name }}<br>
+            <span style="font-weight: 400">{% trans 'Last Name' %} : </span>{{ user_.last_name }}<br>
+            <span style="font-weight: 400">{% trans 'Username' %} </span>: {{ user_.username }}<br>
+            <span style="font-weight: 400">{% trans 'Email' %} : </span>{{ user_.email }}<br>
+            <span style="font-weight: 400">{% trans 'Gender' %} : </span>{{ user_profile.gender }}<br>
+    </p>
+    <div>
+        <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal_edit_information">
+            {% trans 'Edit Account Information' %}
+        </button>
+    </div>
+    <hr style="border: #e53935 solid 1px">
+    <br>
+    <h4>{% trans 'Password' %} :</h4>
+    <p class="lead">
+        <span style="font-weight: 400">
+            {% trans 'Your Password' %} : </span> &nbsp; &nbsp; ****************<br>
+    </p>
+      <div>
+        <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal_change_password">
+            {% trans 'Change The Password' %}
+        </button>
+    </div>
+    <hr style="border: #e53935 solid 1px">
+    <br>
+    <div>
+        <button style="width: 100%;display: block;font-size: 20px" class="btn btn-danger" type="button" data-toggle="modal" data-target="#exampleModal_delete_account">
+            {% trans 'Delete Your Accounts' %}
+        </button>
+    </div>
+    <br>
+    <hr style="border: #e53935 solid 1px">
+    <br>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% load static i18n %}
 <nav class="navbar navbar-expand-lg navbarM">
-    <a class="navbar-brand" style="margin-left: 10px" href="{% url 'home' %}">
+    <a class="navbar-brand" style="margin-left: 10px;{% if nav_home %}margin-right: 70%;{% endif %}" href="{% url 'home' %}">
          <img style="margin-top: -10px" src="{% static 'todo/images/icons/icon.png' %}" width="30" height="30" class="d-inline-block ">
         <span id="logo">{% trans 'Todo List App' %}</span>
     </a>
@@ -10,7 +10,17 @@
   </button>
 </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  {% if user.is_authenticated %}
+  {% if nav_home %}
+      {% if user.is_authenticated %}
+          <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'logout_user' %}">
+          {% csrf_token %}
+              <button style="min-width: 120px" type="button" class="btn btn-outline-danger my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal_logout">
+                    {% trans 'Logout' %}
+              </button>
+          </form>
+      {% endif%}
+  {% else %}
+      {% if user.is_authenticated %}
     <ul class="navbar-nav mr-auto" id="navLink">
       <li class="nav-item active liM">
         <a style="min-width: 120px" class="btn btn-outline-warning active" href="{% url 'todo_not_done' %}">{% trans 'Current' %} <span class="sr-only">(current)</span></a>
@@ -23,17 +33,15 @@
       {% else %}
       <div class="navbar-nav mr-auto" id="navLink"></div>
   {% endif %}
+
       {% if user.is_authenticated %}
-          <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'logout_user' %}">
-          {% csrf_token %}
-            <button style="min-width: 120px" class="btn btn-outline-danger my-2 my-sm-0" type="submit">{% trans 'Logout' %}</button>
-          </form>
-      {% else%}
-          <div class="form-inline my-2 my-lg-0">
-                <a class="btn btn-outline-warning active" style="margin-right: 10px" href="{% url 'login_user' %}">{% trans 'Login' %} <span class="sr-only">(current)</span></a>
-                <a class="btn btn-outline-warning " href="{% url 'sign_up_user' %}">{% trans 'Sign up' %} <span class="sr-only">(current)</span></a>
-          </div>
+          <button style="min-width: 120px" type="button" class="btn btn-outline-danger my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal_logout">
+                    {% trans 'Logout' %}
+              </button>
       {% endif%}
+  {% endif %}
+
 
       </div>
 </nav>
+{% include 'user_auth/logout.html' %}

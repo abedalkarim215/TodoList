@@ -1,6 +1,8 @@
-{% extends 'todo/layouts/base-todo.html' %}
+{% extends 'todo/layouts/base.html' %}
 {% load static i18n %}
+{% block title %}TODO | Completed TODO's{% endblock %}
 {% block content %}
+    {% include 'todo/clear.html' %}
     <style>
     #all:hover{
         background-color: white;
@@ -17,11 +19,10 @@
 <h1 class="" style="text-align: center">^^ {% trans 'Complated Todos' %} ^^</h1>
     </div>
 <div class="col-md-2">
-<form action="{% url 'clear_todo' %}" method="get" style="display:inline;margin: 5px;">
-        <input hidden name="COM" type="text">
-        <button style="min-width: 130px" type="submit" class="btn btn-danger">{% trans 'Clear' %}</button>
+    <button onclick="add_hidden_input_for_COM()" id="clear_todo_done" style="min-width: 130px" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_clear">
+                    {% trans 'Clear' %}
+    </button>
 
-    </form>
 </div>
 
         {% endif %}
@@ -53,3 +54,17 @@
 
 
 {% endblock %}
+{% block js %}
+    <script>
+        function add_hidden_input_for_COM() {
+            document.getElementById('is_com').innerHTML += ' <input hidden name="COM" type="text"> ';
+        }
+
+    </script>
+{% endblock %}
+
+
+{% comment %}
+<button type="button" style="font-size: 15px;max-width:60px;max-height: 38px;margin-top: 6px" class="col-md-1 btn btn-danger " data-toggle="modal" data-target="#exampleModal_delete_todo">
+                    {% trans 'Del' %}
+    </button>{% endcomment %}

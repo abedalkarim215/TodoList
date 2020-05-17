@@ -1,35 +1,44 @@
-{% extends 'user_auth/base.html' %}
-
-{% block content%}
-
-        <h1 style="color: moccasin;text-align: center" >
-        Account Login
-        </h1>
-    <br>
-        {% if messages %}
+{% load i18n %}
+<div class="modal fade" id="exampleModal_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{% trans 'Account Login' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% comment %}{% if messages %}
             {% for message in messages  %}
                 <div class="alert alert-danger" role="alert">
                     {{message}}
                 </div>
             {% endfor %}
-        {% endif %}
+        {% endif %}{% endcomment %}
                 <form method="post" action="{% url 'login_user' %}">
                     {% csrf_token %}
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Username :</label>
+                        <label for="exampleInputEmail1">{% trans 'Username' %} :</label>
                         <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password :</label>
+                        <label for="exampleInputPassword1">{% trans 'Password' %} :</label>
                         <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                       </div>
+                    <hr class="my-4">
                     <div style="text-align: center">
-                      <button type="submit" class="btn btn-primary">Login</button>
+                      <button style="display: block;width: 100%" type="submit" class="btn btn-primary">{% trans 'Login' %}</button>
                     </div>
-                    <br>
-                    <a href="{% url 'sign_up_user' %}"  style="text-align: center">
-                      <button type="button" class="btn btn-primary">dont have an account --> signUp</button>
-                    </a>
-                </form>
 
-{% endblock%}
+                    <div style="text-align: center;margin: 20px">
+                        <button data-dismiss="modal" style="text-align: center;display: block;width: 100%" type="button"  class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal_signup">
+                            <span aria-hidden="true">{% trans 'dont have an account --> signUp' %}</span>
+                        </button>
+
+                    </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 
-{% extends 'todo/layouts/base-todo.html' %}
+{% extends 'todo/layouts/base.html' %}
 {% load static i18n %}
 {% block content %}
     <form method="post" action="{% url 'edit_todo' todo.id%}">

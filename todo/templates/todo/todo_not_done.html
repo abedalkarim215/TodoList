@@ -1,20 +1,16 @@
-{% extends 'todo/layouts/base-todo.html' %}
+{% extends 'todo/layouts/base.html' %}
 {% load static i18n %}
+{% block title %}TODO | Current TODO's{% endblock %}
 {% block content %}
-
+{% include 'todo/clear.html' %}
         <style>
     #all:hover{
         background-color: white;
     }
     </style>
 <div class="row">
-{% if not todos %}
-    <div class="col-md-12">
-        <h1 class="" style="text-align: center">^^ {% trans 'Current Todos' %} ^^</h1>
-    </div>
-
-{% else %}
-    <div class="col-md-2">
+{% if empty_search or todos %}
+<div class="col-md-2">
         <a style="display: block;margin: 5px" href="{% url 'add_todo' %}" class="btn btn-outline-warning active" >
             {% trans 'add todo' %}
         </a>
@@ -29,10 +25,10 @@
         <h1 class="" style="text-align: center;margin-left: -100px">^^{% trans 'Current Todos' %}  ^^</h1>
     </div>
     <div class="col-md-2">
-    <form action="{% url 'clear_todo' %}" method="get" style="display:inline;margin: 5px;">
-        <button style="min-width: 130px" type="submit" class="btn btn-danger">{% trans 'Clear' %}</button>
+     <button style="min-width: 130px" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_clear">
+                    {% trans 'Clear' %}
+    </button>
 
-    </form>
 
     </div>
     <hr class="my-4 col-md-12">
@@ -47,10 +43,29 @@
 </div>
 
     </div>
+    {% if get_by_search %}
+        <div class="row col-md-12">
+            <div style="text-align: center;font-size: 30px;font-weight: 500;padding-left: 25%"  class="col-md-10">
+                {% trans 'The result of filter is :' %}
+            </div>
+            <div class="col-md-2">
+                <a style="margin-left: 50px"  href="{% url 'todo_not_done' %}" class="btn btn-outline-primary">{% trans "All TODO's" %}</a>
+            </div>
+        </div>
+
+    {% endif %}
+{% else %}
+    <div class="col-md-12">
+        <h1 class="" style="text-align: center">^^ {% trans 'Current Todos' %} ^^</h1>
+    </div>
+
+
 {% endif %}
 </div>
     <br>
-{% if not todos %}
+    {% if empty_search %}
+    <p style="text-align: center;color: red;border: red solid 2px;padding: 20px">{% trans "There is no maching TODO's" %}</p>
+{% elif not todos %}
     <div style="background-color: #ffe8a1;height: 200px">
     <p style="text-align: center;font-size: 30px"> {% trans 'WooooW , You dont have any thing to do' %} ,
         <br> {% trans 'You can go to sleep now' %}
@@ -65,6 +80,10 @@
 
     <div class="col-md-10"><a style="text-decoration: none;color: black;" href="{% url 'show_todo' todo.id %}"> <p style="padding-top: 5px">{{todo.title}}</p></a></div>
     <div style="padding: 5px" class="col-md-1"><a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger">{% trans 'Del' %}</a> </div>
+
+{% comment %}     <button type="button" style="font-size: 15px;max-width: 50px" class="col-md-1 btn btn-danger " data-toggle="modal" data-target="#exampleModal_delete_todo">
+                    {% trans 'Del' %}
+    </button>{% endcomment %}
     <div  style="padding: 5px" class="col-md-1">
         <form style="display: inline" action="{% url 'complate_todo' todo.id %}" method="post">
             {% csrf_token%}

@@ -1,4 +1,5 @@
-{% extends 'todo/layouts/base-todo.html' %}
+{% comment %}
+{% extends 'todo/layouts/base.html' %}
 {% load i18n %}
 {% block content %}
 <br><div class="alert alert-danger" role="alert">
@@ -25,4 +26,51 @@
     </div>
     </form>
 
-{% endblock %}
+{% endblock %}{% endcomment %}
+
+
+
+{% load static i18n %}
+<div class="modal fade" id="exampleModal_clear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{% trans 'Warning!' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% comment %}{% if messages %}
+            {% for message in messages  %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}{% endcomment %}
+                <form method="post" action="{% url 'clear_todo' %}">
+                    {% csrf_token %}
+                    <div id="is_com"></div>
+{#                    <p style="text-align: center;font-size: 20px">دلوقتي أنا سؤالي واضح وصريح </p>#}
+                      <p style="text-align: center;font-size: 20px">{% trans "Are You Sure You Wanna Delete All the TODO's ?" %}</p>
+{#                    <img src="{% static 'user_auth/images/logout.jpg' %}">#}
+                    <div style="margin-left: -8px;">
+                    <img alt="animated" src="{% static 'todo/images/clear.jpg' %}">
+                    </div>
+                        <hr class="my-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button style="display: block;width: 100%" type="submit" class="btn btn-danger">{% trans 'Yes' %}</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button style="display: block;width: 100%" class="btn btn-primary" type="button" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">{% trans 'Cancel' %}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+      </div>
+    </div>
+  </div>
+</div>

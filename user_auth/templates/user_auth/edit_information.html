@@ -1,0 +1,73 @@
+{% load i18n %}
+<div class="modal fade" id="exampleModal_edit_information" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="margin-bottom: 0">
+        <h5 class="modal-title" id="exampleModalLabel">{% trans 'Account information' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% comment %}{% if messages %}
+                    {% for message in messages  %}
+                        <div class="alert alert-danger" role="alert">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}{% endcomment %}
+
+                  <form method="post" action="{% url 'edit_information' %}" class="px-4 py-3" style="">
+                    {% csrf_token %}
+                      <div style="">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group" >
+                                      <label for="exampleDropdownFormEmail1">{% trans 'First name' %} :</label>
+                                      <input value="{{ user_.first_name }}" name="first_name" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="First name">
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group" >
+                                      <label for="exampleDropdownFormEmail1">{% trans 'Last name' %} :</label>
+                                      <input value="{{ user_.last_name }}" name="last_name" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Last name">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group" >
+                              <label for="exampleDropdownFormEmail1">{% trans 'Username' %} :</label>
+                              <input value="{{ user_.username }}" name="username" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="User name">
+                          </div>
+                        <div class="form-group" >
+                          <label for="exampleDropdownFormEmail1">{% trans 'Email address' %} :</label>
+                          <input value="{{ user_.email }}"  name="email" type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                        </div>
+                              <div class="form-group col-md-4">
+                                    <label for="inputState">{% trans 'Gender' %}</label>
+                                    <select id="inputState" class="form-control" name="gender">
+                                        {% if user_profile_.gender == "Male" %}
+                                            <option selected value="Male">{% trans 'Male' %}</option>
+                                            <option  value="Female">{% trans 'Female' %}</option>
+                                            <option  value="None">{% trans 'None' %}</option>
+                                        {% elif user_profile_.gender == "Female" %}
+                                            <option  value="Male">{% trans 'Male' %}</option>
+                                            <option selected value="Female">{% trans 'Female' %}</option>
+                                            <option  value="None">{% trans 'None' %}</option>
+                                        {% else %}
+                                            <option  value="Male">{% trans 'Male' %}</option>
+                                            <option  value="Female">{% trans 'Female' %}</option>
+                                            <option selected value="None">{% trans 'None' %}</option>
+                                        {% endif %}
+
+                                    </select>
+                                </div>
+                          <hr class="my-4">
+                    <div style="text-align: center">
+                      <button style="display: block;width: 100%" type="submit" class="btn btn-secondary">{% trans 'Save Changes' %}</button>
+                    </div>
+                      </div>
+                  </form>
+      </div>
+    </div>
+  </div>
+</div>
