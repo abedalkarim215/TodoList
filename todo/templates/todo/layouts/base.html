@@ -19,7 +19,7 @@
 <div style="text-align: center">
     {% for message in messages %}
         <div class="alert alert-danger" role="alert">
-             {{ message }}
+             {{ message|safe }}
         </div>
     {% endfor %}
 </div>

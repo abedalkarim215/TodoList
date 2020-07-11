@@ -5,11 +5,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .filters import Todo_Filter
 from user_auth.models import UserProfile
+from django.utils.translation import gettext as _
 
 def home(request) :
 
     context = {
         'nav_home' : True,
+        'abed' :_("hello")
     }
     return render(request, 'todo/index.html',context)
 
